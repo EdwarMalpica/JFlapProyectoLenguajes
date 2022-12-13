@@ -32,9 +32,6 @@ public class GraphicsFA extends JPanel {
 
 		addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				// Checks if there's no State in the clicked position if there's one it takes it
-				// as first State for a new Transition and the next one clicked is the final
-				// State
 				boolean isOverlapping = false;
 				StateElement selected = null;
 
@@ -111,15 +108,11 @@ public class GraphicsFA extends JPanel {
 
 		if ((CURR_X != x) || (CURR_Y != y)) {
 
-			// The square is moving, repaint background
-			// over the old square location.
 			repaint(CURR_X, CURR_Y, CIRCLE_RADIUS, CIRCLE_RADIUS);
 
-			// Update coordinates.
 			se.setX(x);
 			se.setY(y);
 
-			// Repaint the square at the new location.
 			repaint(se.getX(), se.getY(), CIRCLE_RADIUS + OFFSET, CIRCLE_RADIUS + OFFSET);
 		}
 	}
@@ -137,7 +130,6 @@ public class GraphicsFA extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		// Draw Text
 		RenderingHints hints = new RenderingHints(RenderingHints.KEY_RENDERING,
 				RenderingHints.VALUE_RENDER_QUALITY);
 		hints.put(RenderingHints.KEY_ANTIALIASING,
